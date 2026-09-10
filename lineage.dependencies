@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "android_hardware_xiaomi-chenfeng",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "android_device_xiaomi_chenfeng-kernel",
+    "target_path": "device/xiaomi/chenfeng-kernel"
+  }
+]

@@ -85,6 +85,9 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDoze">17</integer>
 
+    <!-- Whether a tap/double-tap to wake is supported -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
          when adapting to brighter or darker environments.  This parameter controls how quickly
@@ -675,4 +678,11 @@
     <!-- Default value for fp screen off unlock toggle, it only works for the devices that support
          fp screen off unlock-->
     <bool name="config_screen_off_udfps_default_on">true</bool>
+    
+    <!-- UDFPS Sensor Location: [Center X, Center Y, Radius] -->
+    <integer-array name="config_udfps_sensor_props">
+        <item>612</item>
+        <item>2479</item>
+        <item>108</item>
+    </integer-array>
 </resources>

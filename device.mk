@@ -113,6 +113,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# CIT sensor service dependency (missing hypsys lib caused a crash-loop -> RescueParty)
+PRODUCT_PACKAGES += \
+    xiaomi.system.hypsys.common-V1-ndk
+
 # Camera
 PRODUCT_PACKAGES += \
     libcamera2ndk_vendor
@@ -150,9 +154,12 @@ $(foreach display_id, 4630947195234848131 4630947033261136259 463094654558005517
     ))
 
 # Dolby
-PRODUCT_COPY_FILES += \
+# PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
-    $(LOCAL_PATH)/configs/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default-spatializer.xml
+    $(LOCAL_PATH)/configs/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default-spatializer.xml \
+
+# PRODUCT_PACKAGES += \
+    DolbyAtmos
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -188,7 +195,14 @@ PRODUCT_COPY_FILES += \
 
 # GNSS
 PRODUCT_COPY_FILES += \
+    device/xiaomi/chenfeng/rootdir/etc/android.hardware.gnss-aidl-service-qti.rc:$(TARGET_COPY_OUT_ODM)/etc/init/android.hardware.gnss-aidl-service-qti.rc
+
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
+
+# GNSS Hardware Provider
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.gps=qc_gnss
 
 # Health
 PRODUCT_PACKAGES += \
@@ -315,13 +329,11 @@ PRODUCT_PACKAGES += \
     NfcOverlayChenfeng \
     SecureElementOverlayChenfeng \
     SettingsOverlayChenfeng \
-    SettingsProviderOverlayChenfengPOCO \
-    SettingsProviderOverlayChenfengRedmi \
+    SettingsProviderOverlayChenfeng \
+    SettingsProviderOverlayChenfengCN \
     SystemUIOverlayChenfeng \
     TelephonyOverlayChenfeng \
-    WifiOverlayChenfeng \
-    WifiOverlayChenfengPOCO \
-    WifiOverlayChenfengRedmi
+    WifiOverlayChenfeng
 
 # Parts
 PRODUCT_PACKAGES += \
